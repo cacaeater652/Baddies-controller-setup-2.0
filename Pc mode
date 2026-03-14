@@ -3,6 +3,14 @@ local ContextActionService = game:GetService("ContextActionService")
 local VirtualInputManager = game:GetService("VirtualInputManager")
 local camera = workspace.CurrentCamera
 
+-- FOV Extender (locked at 115)
+camera.FieldOfView = 115
+camera:GetPropertyChangedSignal("FieldOfView"):Connect(function()
+	if camera.FieldOfView ~= 115 then
+		camera.FieldOfView = 115
+	end
+end)
+
 local player = Players.LocalPlayer
 
 -- timings
